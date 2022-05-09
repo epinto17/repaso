@@ -1,28 +1,45 @@
 class Capicua():
-    def __init__(self, inicio, final):
-        self.inicio = inicio
-        self.final = final
+    def __init__(self):
         self.casos_prueba = []
+
+    def recibir_datos(self):
+        valor = int(input("Ingrese un número ente 1 - 5: "))
+        while valor > 0:
+            if valor == 0:
+                break
+            else:
+                capicua.casos_prueba.append(valor)
+            valor = int(input("Ingrese otro número: "))
 
     def imprimir_capicua(self):
         for i in range(len(self.casos_prueba)):
             if self.casos_prueba[i] == 1:
-                print ("Hay 10 numeros capicua")
-                
+                self.calcular_capicua(0,10)
+            elif self.casos_prueba[i] == 2:
+                self.calcular_capicua(11,99)
+            elif self.casos_prueba[i] == 3:
+                self.calcular_capicua(100,999)
+            elif self.casos_prueba[i] == 4:
+                self.calcular_capicua(1000,9999)
+            elif self.casos_prueba[i] == 5:
+                self.calcular_capicua(10000,99999)
+            else:
+                print ("Ingrese un valor entre 1 a 5")
 
-    def invertir_numero(n):
-        numero = 0
-        while n != 0:
-            numero = 10*numero+n % 10
-            n //= 10
-        return numero
+    def calcular_capicua(self,inicio,final, conteo):
+        self.inicio = inicio
+        self.final = final
+        self.conteo = conteo
 
-    def capicua(numero):
-        return numero == invertir_numero(numero)
+        conteo = 0
 
-# Probar
-numeros = [11, 20, 123, 9889, 2811, 1801, 777, 12321, ]
+        for numero in range(inicio,final+1):
+            cadena = str(numero)
+            reverso = cadena[::-1]
 
-for numero in numeros:
-    es_capicua = capicua(numero)
-    print(f"El número {numero} es capicúa? {es_capicua}")
+            if cadena == reverso:
+                conteo +=1
+        print ("Hay ",conteo, "numeros capicua")
+
+capicua = Capicua()
+capicua.recibir_datos()
