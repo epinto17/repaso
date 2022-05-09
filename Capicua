@@ -1,12 +1,24 @@
-def invertir_numero(n):
-    numero = 0
-    while n != 0:
-        numero = 10*numero+n % 10
-        n //= 10
-    return numero
+class Capicua():
+    def __init__(self, inicio, final):
+        self.inicio = inicio
+        self.final = final
+        self.casos_prueba = []
 
-def capicua(numero):
-    return numero == invertir_numero(numero)
+    def imprimir_capicua(self):
+        for i in range(len(self.casos_prueba)):
+            if self.casos_prueba[i] == 1:
+                print ("Hay 10 numeros capicua")
+                
+
+    def invertir_numero(n):
+        numero = 0
+        while n != 0:
+            numero = 10*numero+n % 10
+            n //= 10
+        return numero
+
+    def capicua(numero):
+        return numero == invertir_numero(numero)
 
 # Probar
 numeros = [11, 20, 123, 9889, 2811, 1801, 777, 12321, ]
