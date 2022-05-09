@@ -5,10 +5,8 @@ def invertir_numero(n):
         n //= 10
     return numero
 
-
 def capicua(numero):
     return numero == invertir_numero(numero)
-
 
 # Probar
 numeros = [11, 20, 123, 9889, 2811, 1801, 777, 12321, ]
