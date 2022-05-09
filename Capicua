@@ -2,6 +2,22 @@ class Capicua():
     def __init__(self):
         self.casos_prueba = []
 
+    def calcular_capicua(self,inicio,final):
+        self.inicio = inicio
+        self.final = final
+
+        first = self.inicio
+        last = self.final
+        conteo = 0
+
+        for numero in range(first,last+1):
+            cadena = str(numero)
+            reverso = cadena[::-1]
+
+            if cadena == reverso:
+                conteo +=1
+        print ("Hay ",conteo, "numeros capicua")
+
     def recibir_datos(self):
         valor = int(input("Ingrese un número ente 1 - 5: "))
         while valor > 0:
@@ -26,20 +42,6 @@ class Capicua():
             else:
                 print ("Ingrese un valor entre 1 a 5")
 
-    def calcular_capicua(self,inicio,final, conteo):
-        self.inicio = inicio
-        self.final = final
-        self.conteo = conteo
-
-        conteo = 0
-
-        for numero in range(inicio,final+1):
-            cadena = str(numero)
-            reverso = cadena[::-1]
-
-            if cadena == reverso:
-                conteo +=1
-        print ("Hay ",conteo, "numeros capicua")
-
 capicua = Capicua()
 capicua.recibir_datos()
+capicua.imprimir_capicua()
